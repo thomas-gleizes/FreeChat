@@ -1,0 +1,43 @@
+
+#chat {
+
+}
+
+#contenue {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border:solid 10px;
+    border-bottom-color: #A30000;
+    border-right-color: #9F0000;
+    min-width: 400px;
+    min-height: 600px;
+    max-width: 500px;
+    max-height: 1000px;
+    padding: 20px;
+}
+
+.message {
+    margin-top: 4px;
+    margin-left: 5%;
+    margin-right: 40%;
+    background-color: #DD1212;
+    border-radius: 20px;
+    padding: 5px;
+    border:solid 5px;
+    border-color: #9F0000;
+    text-align: left;
+    color:whitesmoke;
+}
+
+.perso {
+    margin-top: 4px;
+    margin-left: 40%;
+    margin-right: 5%;
+    max-width: 200px;
+    background-color: #DD1212;
+    border-radius: 20px;
+    padding: 5px;
+    border:solid 5px;
+    border-color: #9F0000;
+    color:whitesmoke;
+}
