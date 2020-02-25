@@ -1,25 +1,24 @@
 
-function upDateLocalisation(text){
+function sendMsg(text){
     $.ajax({
-        url : './php/routeur.php',
+        url : '../php/routeur.php',
         tyoe : 'GET',
         data : 'Msg=' + text,
         dataType : 'text',
         success : function (resultat, statut){
+            console.log(resultat);
         }
     });
 }
 
-async function getChef() {
-    var result;
+async function getAllMsg() {
     await $.ajax({
-        url : '../controller/routeur.php',
+        url : '../php/routeur.php',
         type : 'GET',
-        data : 'Ajax=getChef',
+        data : 'AllMsg=10',
         dataType : 'text',
         success : function(resultat, statut){
-            result = resultat;
+            console.log(resultat)
         },
     });
-    return result;
 }

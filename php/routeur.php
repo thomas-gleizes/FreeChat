@@ -3,9 +3,11 @@
 require_once ("Controller.php");
 
 if (!$_GET == null) {
-    if ($_GET['REC'] == '1986328'){
-        header("Location:../view/Chat.html");
-    } else if (isset($_GET['Msg'])){
-        Controller::getMsg();
+    if (isset($_GET['Msg'])){
+        Controller::addMsg();
+    } else if (isset($_GET['AllMsg'])){
+        Controller::getAllMsg();
+    } else if (isset($_GET['REC'])) {
+        header('Location:../view/Chat.html');
     }
 }
