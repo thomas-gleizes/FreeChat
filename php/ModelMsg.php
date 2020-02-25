@@ -15,7 +15,7 @@ Class ModelMsg {
     }
 
     public static function getAllMsg ($limiter){
-        $sql = "SELECT * FROM FreeChat WHERE ip != :ip ORDER BY idMsg DESC LIMIT 10";
+        $sql = "SELECT * FROM FreeChat ORDER BY idMsg DESC LIMIT 10";
         $value['ip'] = $_SERVER['REMOTE_ADDR'];
         $rec_prep = Model::$pdo->prepare($sql);
         $rec_prep->execute($value);

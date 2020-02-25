@@ -9,5 +9,7 @@ if (!$_GET == null) {
         Controller::getAllMsg();
     } else if (isset($_GET['REC'])) {
         header('Location:../view/Chat.html');
+    } else if (isset($_GET['Ip'])){
+        Controller::getIp();
     }
 }
