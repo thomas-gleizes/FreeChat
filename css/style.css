@@ -14,19 +14,23 @@
     max-width: 500px;
     max-height: 1000px;
     padding: 20px;
+    -webkit-box-shadow: 5px 8px 3px 0px rgba(84,84,84,1);
+    -moz-box-shadow: 5px 8px 3px 0px rgba(84,84,84,1);
+    box-shadow: 5px 8px 3px 0px rgba(84,84,84,1);
 }
 
 .message {
     margin-top: 4px;
     margin-left: 5%;
     margin-right: 40%;
-    background-color: #DD1212;
     border-radius: 20px;
     padding: 5px;
     border:solid 5px;
-    border-color: #9F0000;
     text-align: left;
     color:whitesmoke;
+    -webkit-box-shadow: 2px 3px 1px 0px rgba(84,84,84,1);
+    -moz-box-shadow: 2px 3px 1px 0px rgba(84,84,84,1);
+    box-shadow: 2px 3px 1px 0px rgba(84,84,84,1);
 }
 
 .perso {
@@ -34,11 +38,21 @@
     margin-left: 40%;
     margin-right: 5%;
     max-width: 200px;
-    background-color: #DD1212;
     border-radius: 20px;
     padding: 5px;
     border:solid 5px;
-    border-color: #9F0000;
     color:whitesmoke;
+    -webkit-box-shadow: 2px 3px 1px 0px rgba(84,84,84,1);
+    -moz-box-shadow: 2px 3px 1px 0px rgba(84,84,84,1);
+    box-shadow: 2px 3px 1px 0px rgba(84,84,84,1);
+}
+
+p {
+    margin: 0px;
+}
+
+.user {
+    font-family: "Bell MT";
+    font-size: 13px;
 }
 
