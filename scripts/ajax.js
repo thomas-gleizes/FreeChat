@@ -19,7 +19,6 @@ async function getAllMsg() {
         dataType : 'text',
         success : function(resultat, statut){
             res = resultat;
-            console.log(res)
         },
     });
     return res;

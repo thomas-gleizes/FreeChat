@@ -2,12 +2,10 @@ $("document").ready(function () {
 
     getAllMsg().then(function (value) {
         value = value.split("£");
-        for (let i = 0; i < value.length - 1; i++){
-            console.log(value.length - 2 - i);
+        for (let i = 0; i < value.length - 2 ; i++){
             addMessage(value[value.length - 2 - i]);
         }
     });
-
 
     $("#send").click(function () {
         let text = document.getElementById("text");
@@ -22,11 +20,11 @@ $("document").ready(function () {
     });
 
     function addMessage(value) {
-        let msg = value.split("$");
+        let tab = splitAjax(value);
         getIp().then(function (value){
             let element = document.createElement("div");
-            element.innerHTML = msg[1];
-            if (msg[0] === value){
+            element.innerHTML = tab['msg'];
+            if (tab['ip'] === value){
                 element.className = "perso"
             } else {
                 element.className = "message"
@@ -35,7 +33,17 @@ $("document").ready(function () {
         });
     }
 
+    function splitAjax(value) {
+        tab = [4];
+        tab['ip'] = value.split("$")[0].split("¤")[1];
+        tab['msg'] = value.split("$")[1];
+        tab['date'] = value.split("µ")[0];
+        tab['heure'] = value.split("µ")[1].split('¤')[0];
+        return tab
+    }
 
+    function addRandomColor() {
 
+    }
 
 });

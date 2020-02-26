@@ -5,7 +5,7 @@ require_once ("./Model.php");
 Class ModelMsg {
 
     public static function insertMsg ($text){
-        $sql = "INSERT INTO FreeChat VALUES ('', :ip, :date, :heure, :text);";
+        $sql = "INSERT INTO freechat VALUES ('', :ip, :date, :heure, :text);";
         $values['ip'] = $_SERVER['REMOTE_ADDR'];
         $values['date'] = date("o-n-d");
         $values['heure'] = date("H:i:s");
@@ -15,7 +15,7 @@ Class ModelMsg {
     }
 
     public static function getAllMsg ($limiter){
-        $sql = "SELECT * FROM FreeChat ORDER BY idMsg DESC LIMIT 10";
+        $sql = "SELECT * FROM freechat ORDER BY idMsg DESC LIMIT 10";
         $value['ip'] = $_SERVER['REMOTE_ADDR'];
         $rec_prep = Model::$pdo->prepare($sql);
         $rec_prep->execute($value);

@@ -16,7 +16,7 @@ class Controller {
         $tab = ModelMsg::getAllMsg($_GET['AllMsg']);
         $n = 0;
         foreach ($tab as $item) {
-            echo $tab[$n]['ip'] . "$" . $tab[$n]['text'] . "£" . $tab[$n]['date'] . "¨" . $tab[$n]['heure'] . "¤";
+            echo $tab[$n]['ip'] . "$" . $tab[$n]['text'] . "£" . $tab[$n]['date'] . "µ" . $tab[$n]['heure'] . "¤";
             $n++;
         }
     }
