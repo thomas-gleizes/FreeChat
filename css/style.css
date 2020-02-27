@@ -55,4 +55,9 @@ p {
     font-family: "Bell MT";
     font-size: 13px;
 }
+.date {
+    font-size: 8px;
+    text-align: right;
+    top: -5px;
+}
 

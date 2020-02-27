@@ -1,7 +1,12 @@
 
+.bg-colorUser {
+    background-color: #00279A;
+    border-color: #002184;
+}
+
 .bg-color1 {
-    background-color: #1a237e;
-    border-color: #161E72;
+    background-color: #4A6DD7;
+    border-color: #3251AE;
 }
 
 .bg-color2 {

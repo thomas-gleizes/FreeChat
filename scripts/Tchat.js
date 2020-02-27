@@ -2,6 +2,12 @@ $("document").ready(function () {
 
     let tabcolor = [];
     let date = new Date();
+    let Timelog;
+
+    getRealDate().then(function (value) {
+        Timelog = value.split["¤"];
+        console.log(Timelog)
+    });
 
     getAllMsg().then(function (value) {
         value = value.split("¤");
@@ -26,14 +32,14 @@ $("document").ready(function () {
     function addMessage(value) {
         let tab = splitAjax(value);
         getIp().then(function (value){
-            generateColor(tab['ip']);
             let element = document.createElement("div");
             if (tab['ip'] === value) {
-                element.className = "perso bg-color" + tabcolor[tab['ip']];
-                element.innerHTML = "<p class='user'> Vous avez dit : </p> ";
+                element.className = "perso bg-colorUser";
+                element.innerHTML = "<p class='user'> Vous avez dit :</p> <p class='date'> a l'instant </p> ";
             } else {
+                generateColor(tab['ip']);
                 element.className = "message bg-color" + tabcolor[tab['ip']];
-                element.innerHTML = "<p class='user'> Anynomus-" + generateID(tab['ip']).substring(1,6) + " a dit :</p> ";
+                element.innerHTML = "<p class='user'> Anynomus-" + generateID(tab['ip']).substring(1,6) + " a dit :</p><p class='date'> le " + tab['date'] + " à " + tab['heure'] + "</p> ";
             }
             element.innerHTML += tab['msg'];
             document.getElementById("contenue").appendChild(element)
@@ -79,6 +85,35 @@ $("document").ready(function () {
         return time
     }
 
-    getRealDate()
+    /**
+     *  retourne
+     *  0 : date1 = date2
+     *  1 : date1 > date2
+     *  2 : date1 < date2
+     */
+    function compareDate (date1, date2){
+        if (date1 === date2) return 0;
+        let d1 = date1.split("-");
+        let d2 = date2.split("-");
+        if (d1[0] > d2[0]) return 1;
+        else if (d1[0] < d2[0]) return 2;
+        else if (d1[1] > d2[1]) return 1;
+        else if (d1[1] < d2[1]) return 2;
+        else if (d1[2] > d2[2]) return 1;
+        else return 2;
+    }
+
+    function compareTime (time1, time2){
+        if (time1 === time2) return 0;
+        let t1 = time1.split(":");
+        let t2 = time2.split(".");
+        if (t1[0] > t2[0]) return 1;
+        else if (t1[0] < t2[0]) return 2;
+        else if (t1[1] > t2[1]) return 1;
+        else if (t1[1] < t2[1]) return 2;
+        else if (t1[2] > t2[2]) return 1;
+        else return 2;
+    }
+
 
 });

@@ -13,13 +13,22 @@ class Controller {
     }
 
     public static function getDate(){
-        echo date('o-n-d') . "¤" . date('H:i:s');
+        echo date('o-m-d') . "¤" . date('H:i:s');
     }
 
     public static function getAllMsg (){
         $tab = ModelMsg::getAllMsg($_GET['limiter']);
         $n = 0;
         foreach ($tab as $item) {
+            echo $tab[$n]['ip'] . "$" . $tab[$n]['text'] . "£" . $tab[$n]['date'] . "µ" . $tab[$n]['heure'] . "¤";
+            $n++;
+        }
+    }
+
+    public static function getLastMsg(){
+        $tab = ModelMsg::getLastMSg($_GET['date'], $_GET['heure']);
+        $n = 0;
+        foreach ($tab as $item){
             echo $tab[$n]['ip'] . "$" . $tab[$n]['text'] . "£" . $tab[$n]['date'] . "µ" . $tab[$n]['heure'] . "¤";
             $n++;
         }
