@@ -3,7 +3,7 @@ function sendMsg(text){
     $.ajax({
         url : '../php/routeur.php',
         tyoe : 'GET',
-        data : 'Msg=' + text,
+        data :  'Controller=addMsg&Msg=' + text,
         dataType : 'text',
         success : function (resultat, statut){
         }
@@ -15,7 +15,7 @@ async function getAllMsg() {
     await $.ajax({
         url : '../php/routeur.php',
         type : 'GET',
-        data : 'AllMsg=10',
+        data : 'Controller=getAllMsg&limiter=10',
         dataType : 'text',
         success : function(resultat, statut){
             res = resultat;
@@ -29,10 +29,24 @@ async function getIp(text){
     await $.ajax({
         url : '../php/routeur.php',
         tyoe : 'GET',
-        data : 'Ip=true',
+        data : 'Controller=getIp',
         dataType : 'text',
         success : function (resultat, statut){
             res = resultat;
+        }
+    });
+    return res;
+}
+
+async function getRealDate(){
+    await $.ajax({
+        url : '../php/routeur.php',
+        tyoe : 'GET',
+        data : 'Controller=getDate',
+        dataType : 'text',
+        success : function (resultat, statut){
+            res = resultat;
+            console.log(res);
         }
     });
     return res;

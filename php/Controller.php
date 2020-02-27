@@ -12,8 +12,12 @@ class Controller {
         echo $_SERVER['REMOTE_ADDR'];
     }
 
+    public static function getDate(){
+        echo date('o-n-d') . "¤" . date('H:i:s');
+    }
+
     public static function getAllMsg (){
-        $tab = ModelMsg::getAllMsg($_GET['AllMsg']);
+        $tab = ModelMsg::getAllMsg($_GET['limiter']);
         $n = 0;
         foreach ($tab as $item) {
             echo $tab[$n]['ip'] . "$" . $tab[$n]['text'] . "£" . $tab[$n]['date'] . "µ" . $tab[$n]['heure'] . "¤";

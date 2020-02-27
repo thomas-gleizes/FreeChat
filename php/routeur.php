@@ -3,13 +3,10 @@
 require_once ("Controller.php");
 
 if (!$_GET == null) {
-    if (isset($_GET['Msg'])){
-        Controller::addMsg();
-    } else if (isset($_GET['AllMsg'])){
-        Controller::getAllMsg();
-    } else if (isset($_GET['REC'])) {
+    if (isset($_GET['Controller'])){
+        $action = $_GET['Controller'];
+        Controller::$action();
+    } else {
         header('Location:../view/Chat.html');
-    } else if (isset($_GET['Ip'])){
-        Controller::getIp();
     }
 }

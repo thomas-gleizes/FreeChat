@@ -16,15 +16,11 @@ Class ModelMsg {
 
     public static function getAllMsg ($limiter){
         $sql = "SELECT * FROM freechat ORDER BY idMsg DESC LIMIT 10";
-        $value['ip'] = $_SERVER['REMOTE_ADDR'];
         $rec_prep = Model::$pdo->prepare($sql);
-        $rec_prep->execute($value);
+        $rec_prep->execute();
         $rec_prep->setFetchMode(PDO::FETCH_ASSOC);
-        $tab = $rec_prep->fetchAll();
-        return $tab;
+        return $rec_prep->fetchAll();
     }
-
-
 
 
 }
