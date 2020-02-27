@@ -23,11 +23,12 @@ Class ModelMsg {
     }
 
     public static function getLastMSg($date, $heure){
-        $sql = "SELECT * FROM freechat WHERE date = :date AND heure > :heure
+        $sql = "SELECT * FROM freechat WHERE date = :date AND heure > :heure AND ip != :ip
                 UNION 
-                SELECT * FROM freechat WHERE date > :date";
+                SELECT * FROM freechat WHERE date > :date AND ip != :ip";
         $values['date'] = $date;
         $values['heure'] = $heure;
+        $values['ip'] = $_SERVER['REMOTE_ADDR'];
         $rec_prep = Model::$pdo->prepare($sql);
         $rec_prep->execute($values);
         $rec_prep->setFetchMode(PDO::FETCH_ASSOC);

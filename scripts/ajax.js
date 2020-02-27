@@ -51,7 +51,7 @@ async function getRealDate(){
     return out;
 }
 
-async function updateTchat(date, heure) {
+async function upDateMsg(date, heure) {
     let out;
     await $.ajax({
         url : "../php/routeur.php",
@@ -60,6 +60,7 @@ async function updateTchat(date, heure) {
         datatype : 'text',
         success : function (result, statut) {
             out = result;
+            console.log(out)
         },
     });
     return out;

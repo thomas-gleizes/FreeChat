@@ -5,8 +5,7 @@ $("document").ready(function () {
     let Timelog;
 
     getRealDate().then(function (value) {
-        Timelog = value.split["¤"];
-        console.log(Timelog)
+        Timelog = value.split("¤");
     });
 
     getAllMsg().then(function (value) {
@@ -106,7 +105,7 @@ $("document").ready(function () {
     function compareTime (time1, time2){
         if (time1 === time2) return 0;
         let t1 = time1.split(":");
-        let t2 = time2.split(".");
+        let t2 = time2.split(":");
         if (t1[0] > t2[0]) return 1;
         else if (t1[0] < t2[0]) return 2;
         else if (t1[1] > t2[1]) return 1;
@@ -115,5 +114,25 @@ $("document").ready(function () {
         else return 2;
     }
 
+    let refresh = window.setInterval(upDateTchat, 5000);
+
+    function upDateTchat() {
+        getRealDate().then(function (value) {
+            let time = value;
+            upDateMsg(Timelog[0], Timelog[1]).then(function (value) {
+                console.log(Timelog);
+                value = value.split("¤");
+                for (let i = 0; i < value.length - 1 ; i++){
+                    addMessage(value[value.length - 2 - i]);
+                }
+                Timelog = time.split("¤");
+            });
+        });
+
+    }
+
+    $("#stop").click(function () {
+        clearInterval(refresh)
+    });
 
 });
